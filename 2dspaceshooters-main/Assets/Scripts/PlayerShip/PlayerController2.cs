@@ -280,7 +280,7 @@ public class PlayerController2 : MonoBehaviour
         
          if (other.gameObject.CompareTag("BulletUpgrade"))
          {
-             Debug.Log("Bullet 1 arttı");
+             
              bulletCount += 1 ;
 
             Destroy(gameObject);
@@ -288,7 +288,7 @@ public class PlayerController2 : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PobUpgrade"))
          {
-             Debug.Log("Bullet 17 arttı");
+            
              powBullet = true ;
             
         }
@@ -301,7 +301,7 @@ public class PlayerController2 : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Enemy"))
          {
-            Debug.Log("Enemy'e carpti");
+            
             health -= 1 ;
          }
         
@@ -316,14 +316,14 @@ public class PlayerController2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag("BulletUpgrade"))
          {
-             Debug.Log("Bullet 1 arttı");
+             
              bulletCount += 1 ;
 
             
         }
          if (other.gameObject.CompareTag("PobUpgrade"))
          {
-             Debug.Log("powBullet Alındı");
+             
              powBullet = true;
          }
 
@@ -334,7 +334,7 @@ public class PlayerController2 : MonoBehaviour
         }
         if (other.gameObject.CompareTag("EnemyBullet"))
         {
-            Debug.Log("Player Damage Aldı");
+            
             health -= 1 ;
 
             if (health == 0)

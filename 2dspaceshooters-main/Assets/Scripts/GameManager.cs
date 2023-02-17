@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class GameManager : MonoBehaviour
 {
-    public GameObject GameOverPanel , ComplateFinishPanel , PausePanel, Settings;
+
+    public GameObject  ShopPanel, Ships, Drones, Upgrades, Asinium;
+    public GameObject ShipFocus, DronesFocus, UpgradesFocus, AsiniumFocus;
+
+    public GameObject GameOverPanel , ComplateFinishPanel , PausePanel;
 
     public static bool isGameOver;
 
@@ -13,12 +17,21 @@ public class GameManager : MonoBehaviour
 
     public int selectedGame;
 
-    
+    public int goldMen;
+    public TextMeshProUGUI goldMenText;
+
+    public int toolsMen;
+    public TextMeshProUGUI toolsMenText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (PlayerPrefs.HasKey("goldC"))
+        {
+            goldMen = PlayerPrefs.GetInt("goldC");
+        }
+        else
+            goldMen = 0;
 
         GameOverPanel.SetActive(false);
         ComplateFinishPanel.SetActive(false);
@@ -35,7 +48,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(WaveSpawner.isGameFinish == true)
+
+        goldMen = PlayerPrefs.GetInt("goldC");
+        goldMenText.text = goldMen.ToString();
+
+        toolsMen = PlayerPrefs.GetInt("toolsC");
+        toolsMenText.text = toolsMen.ToString();
+
+        if (WaveSpawner.isGameFinish == true)
         {
             ComplateFinishPanel.SetActive(true);
         }
@@ -176,14 +196,7 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
-    public void SetOpen()
-    {
-        Settings.SetActive(true);
-    }
-    public void SetClose()
-    {
-        Settings.SetActive(false);
-    }
+   
 
     public void RestartButton()
     {
@@ -218,4 +231,67 @@ public class GameManager : MonoBehaviour
         PlayerController7.health = 1;
         PlayerController7.updateController = 0;
     }
+
+    
+
+    public void Shop()
+    {
+        ShopPanel.SetActive(true);
+    }
+
+    public void Exit()
+    {
+        
+        ShopPanel.SetActive(false);
+    }
+
+    public void ShipsPanel()
+    {
+        Ships.SetActive(true);
+        Drones.SetActive(false);
+        Upgrades.SetActive(false);
+        Asinium.SetActive(false);
+
+        ShipFocus.SetActive(true);
+        DronesFocus.SetActive(false);
+        UpgradesFocus.SetActive(false);
+        AsiniumFocus.SetActive(false);
+    }
+    public void DronesPanel()
+    {
+        Ships.SetActive(false);
+        Drones.SetActive(true);
+        Upgrades.SetActive(false);
+        Asinium.SetActive(false);
+
+        ShipFocus.SetActive(false);
+        DronesFocus.SetActive(true);
+        UpgradesFocus.SetActive(false);
+        AsiniumFocus.SetActive(false);
+    }
+    public void UpgradePanel()
+    {
+        Ships.SetActive(false);
+        Drones.SetActive(false);
+        Upgrades.SetActive(true);
+        Asinium.SetActive(false);
+
+        ShipFocus.SetActive(false);
+        DronesFocus.SetActive(false);
+        UpgradesFocus.SetActive(true);
+        AsiniumFocus.SetActive(false);
+    }
+    public void AsinPanel()
+    {
+        Ships.SetActive(false);
+        Drones.SetActive(false);
+        Upgrades.SetActive(false);
+        Asinium.SetActive(true);
+
+        ShipFocus.SetActive(false);
+        DronesFocus.SetActive(false);
+        UpgradesFocus.SetActive(false);
+        AsiniumFocus.SetActive(true);
+    }
+
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using DG.Tweening;
+
 
 
 public class MainManager : MonoBehaviour
@@ -122,24 +122,5 @@ public class MainManager : MonoBehaviour
         UpgradesFocus.SetActive(false);
         AsiniumFocus.SetActive(true);
     }
-    //public void SfxToggle()
-    //{
-
-    //    if (SFXManager.sfxInstance.musicToggle == 1)
-    //    {
-    //        SFXManager.sfxInstance.musicToggle = 0;
-    //        //sfxClose.SetActive(true);
-    //        //sfxOpen.SetActive(false);
-    //        PlayerPrefs.SetInt("musictogle", SFXManager.sfxInstance.musicToggle);
-
-    //    }
-    //    else
-    //    {
-    //        SFXManager.sfxInstance.musicToggle = 1;
-    //        //sfxOpen.SetActive(true);
-    //        //sfxClose.SetActive(false);
-
-    //        PlayerPrefs.SetInt("musictogle", SFXManager.sfxInstance.musicToggle);
-    //    }
-    //}
+   
 }

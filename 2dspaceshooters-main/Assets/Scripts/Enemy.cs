@@ -127,31 +127,31 @@ IEnumerator BulletCoroutine() // bullet position
 
         if (other.gameObject.CompareTag("PlayerBullet"))
         {
-            Debug.Log("Yarraaenemy");
+            
             health -= 1 ;
            //Destroy(gameObject);
         }
          if (other.gameObject.CompareTag("DroneBullet"))
         {
-            Debug.Log("Yarraadrone");
+            
             health -= 1 ;
            //Destroy(gameObject);
         }
          if (other.gameObject.CompareTag("Player"))
          {
-            Debug.Log("Player'a carptik");
+            
              health -= 1 ;
          }
          if (other.gameObject.CompareTag("Drone"))
          {
-            Debug.Log("Player'a carptik");
+            
              health -= 1 ;
          }
         
     }
     void bulletT()
     {
-        Debug.Log("Invoke çalıştı");
+        
         StartCoroutine(BulletCoroutine());
     }
 
